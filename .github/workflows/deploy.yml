@@ -22,6 +22,9 @@ jobs:
         run: |
           dotnet build -c Release
           dotnet publish -c Release -o publish
+          
+      - name: Change base-tag in index.html from / to Cheatsheets
+        run: sed -i 's/<base href="\/" \/>/<base href="\/Cheatsheets\/" \/>/g' release/wwwroot/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
