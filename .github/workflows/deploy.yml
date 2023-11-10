@@ -24,7 +24,7 @@ jobs:
           dotnet publish -c Release -o publish
 
       - name: Show current directory
-        run: ls -a
+        run: cd publish && ls -a
 
       - name: Change base-tag in index.html
         run: sed -i 's/<base href="\/" \/>/<base href="\/Cheatsheets\/" \/>/g' publish/index.html
